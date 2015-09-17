@@ -7,22 +7,25 @@ A chained async condition assertion runner. Checks expectations on variables aga
 Example:
 
 ```
-// we call done() when we are "done"
+// just some typical async test function for an object called "player"
 var MyPlayerTestFunction = function(player, done) {
 
       // we want to look at two things here - the player position and its state.
 
-      // initialize the position CondVar (we need to wrap the "action object" that will trigger events to update
-      // this variable
+      // initialize the position CondVar (we need to wrap the "action object" 
+      // that will trigger events to update this variable
+      
   var positionCondVar = new Runner.CondVar(player, 10000)
       .plug('positionChange').debug(),
 
       // same for the state. debug() is so we get a print off the values on console
+      
       stateCondVar = new Runner.CondVar(player)
       .plug('stateChange').debug(),
 
       // here we build our domino chain... note that we can even wait for a bit if we want
       // and continue checking the next condition "later"
+      
       chain = new Runner.ExpectationChain(player)
       .add(stateCondVar.expectEqual, States.IDLE, "should start in IDLE")
       .add(stateCondVar.expectEqual, States.LOADING, "should go to LOADING when we press play", player.play)
@@ -40,14 +43,18 @@ var MyPlayerTestFunction = function(player, done) {
       .add(positionCondVar.expectEqual, 3000, "should be paused at 3000 ms exactly")
       .add(stateCondVar.expectEqual, States.PLAYING, "should go to PLAYING when we play", player.play)
       .add(positionCondVar.expectAbove, 7000, "should play until 7000 ms at least")
+      
       // at the end we can call the "done" function (optional) to indicate our top-level runner
       // we are done with this async test.
+      
       .end(done);
 
   // trigger an initial propagation of state var
+  
   player.trigger('stateChange', player.getState(), player);
 
-  // push the domino
+  // push the first domino stone
+  
   chain.shift();
 }
 ```
