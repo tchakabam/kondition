@@ -4,6 +4,8 @@ A chained async condition assertion runner. Checks expectations on variables aga
 
 `kondition` is a bit like playing domino. Every state has to match the condition we assert in order to trigger the next action, which lead to the next state which will be asserted, etc .... Check the example!
 
+**The only thing you need is an object to observe that behaves like Backbone.js Events dispatcher.**
+
 Example:
 
 ```
