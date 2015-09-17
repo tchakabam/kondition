@@ -1,0 +1,22 @@
+{
+  "name": "kondition",
+  "version": "1.0.0",
+  "description": "A chained condition assertion runner. Checks expectations on variables against actions and enables conditional waiting.",
+  "keywords": [
+    "assert",
+    "test",
+    "runner",
+    "condition",
+    "wait"
+  ],
+  "main": "runner.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/tchakabam/kondition.git"
+  },
+  "author": "Stephan Hesse <tchakabam@gmail.com>",
+  "license": "MIT"
+}
