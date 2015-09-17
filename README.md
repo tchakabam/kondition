@@ -13,9 +13,10 @@ var MyPlayerTestFunction = function(player, done) {
       // we want to look at two things here - the player position and its state.
 
       // initialize the position CondVar (we need to wrap the "action object" 
-      // that will trigger events to update this variable
-      
-  var positionCondVar = new Runner.CondVar(player, 10000)
+      // that will trigger events to update this variable. 
+      // we set a timeout of 10000 ms for when the expected condition on the position var does not appear.
+       
+  var positionCondVar = new Runner.CondVar(player, 10000) 
       .plug('positionChange').debug(),
 
       // same for the state. debug() is so we get a print off the values on console
