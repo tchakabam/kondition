@@ -1,7 +1,7 @@
 {
   "name": "kondition",
   "version": "1.0.0",
-  "description": "A chained condition assertion runner. Checks expectations on variables against actions and enables conditional waiting.",
+  "description": "An async chained condition assertion runner. Checks expectations on variables against actions and enables conditional waiting.",
   "keywords": [
     "assert",
     "test",
