@@ -65,3 +65,12 @@ var MyPlayerTestFunction = function(player, done) {
   chain.shift();
 }
 ```
+
+### How to use ?
+
+Install with npm:
+```
+npm install kondition
+```
+
+Use with a CommonJS compatible `require` function as in the example above or include statically from `node_modules` directory the `kondition/runner.js` file.
