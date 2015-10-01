@@ -1,5 +1,3 @@
-Utils = require('../js/utils'),
-
 module.exports = {};
 
 var DEBUG = true;
@@ -8,6 +6,12 @@ function log (msg) {
   if (DEBUG) {
     window.console.log (msg);
   }
+}
+
+function bindAll(instance, functions) {
+  functions.forEach(function(func) {
+    instance[func] = instance[func].bind(instance);
+  });
 }
 
 var CondVar = module.exports.CondVar = function(actionObject, timeoutMs) {
@@ -21,7 +25,7 @@ var CondVar = module.exports.CondVar = function(actionObject, timeoutMs) {
   this.reset();
   this.timeoutMs = timeoutMs;
 
-  Utils.bindAll(this, [
+  bindAll(this, [
     'expectBelow',
     'expectAbove',
     'expectEqual',
