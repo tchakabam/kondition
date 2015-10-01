@@ -9,6 +9,10 @@ A chained async condition assertion runner. Checks expectations on variables aga
 Example:
 
 ```
+
+var KonditionRunner = require('kondition'),
+    Runner = KonditionRunner;
+
 // just some typical async test function for an object called "player"
 var MyPlayerTestFunction = function(player, done) {
 
